@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public float force;
     private bool isJump = false;
+    public GameObject map;
 
     // Start is called before the first frame update
     void Start()
@@ -29,14 +30,30 @@ public class PlayerController : MonoBehaviour
             isJump = false;
         }
 
+        if(collision.transform.tag.Equals("Ground")){
+            rb.freezeRotation = true;
+        }
+
         if(collision.transform.tag.Equals("Obstacle")){
             Destroy(gameObject);
         }
 
         if(collision.transform.tag.Equals("Jumper")){
-            rb.AddForce(new Vector2(0, 900));
+            rb.AddForce(new Vector2(0, 2000));
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.transform.tag.Equals("PortalHorizontal")){
+            MapMover.speed = -MapMover.speed;
+            map.transform.position = new Vector2(transform.position.x, map.transform.position.y);
+            map.transform.Rotate(0, -180, 0);
         }
 
-
+        if(collision.transform.tag.Equals("PortalVertical")){
+            rb.gravityScale = -rb.gravityScale;
+            map.transform.position = new Vector2(19, map.transform.position.y);
+            map.transform.Rotate(180, 0, 0);
+        }
     }
 }

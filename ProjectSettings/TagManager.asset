@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Obstacle
+  - Jumper
+  - PortalVertical
+  - PortalHorizontal
   layers:
   - Default
   - TransparentFX
