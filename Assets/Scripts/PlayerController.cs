@@ -32,5 +32,11 @@ public class PlayerController : MonoBehaviour
         if(collision.transform.tag.Equals("Obstacle")){
             Destroy(gameObject);
         }
+
+        if(collision.transform.tag.Equals("Jumper")){
+            rb.AddForce(new Vector2(0, 900));
+        }
+
+
     }
 }
