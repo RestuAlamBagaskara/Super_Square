@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     public float force;
+    private float position;
     private bool isJump = false;
     public GameObject map;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        position = Portal.position;
     }
 
     // Update is called once per frame
@@ -35,18 +37,19 @@ public class PlayerController : MonoBehaviour
         }
 
         if(collision.transform.tag.Equals("Obstacle")){
-            Destroy(gameObject);
+            map.transform.position = new Vector2(transform.position.x, map.transform.position.y);
         }
 
         if(collision.transform.tag.Equals("Jumper")){
             rb.AddForce(new Vector2(0, 2000));
+            isJump = true;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.transform.tag.Equals("PortalHorizontal")){
             MapMover.speed = -MapMover.speed;
-            map.transform.position = new Vector2(transform.position.x, map.transform.position.y);
+            map.transform.position = new Vector2(position + 4.0f, map.transform.position.y);
             map.transform.Rotate(0, -180, 0);
         }
 
