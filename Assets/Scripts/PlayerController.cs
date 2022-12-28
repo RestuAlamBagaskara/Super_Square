@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         position = Portal.position;
+        Debug.Log("Ini" + position);
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetMouseButton(0) && !isJump){
             rb.AddForce(new Vector2(0, force));
-            transform.Rotate(0, 0, -90);
+            transform.Rotate(0, 0, 180);
             isJump = true;
         }
     }
@@ -49,13 +50,14 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.transform.tag.Equals("PortalHorizontal")){
             MapMover.speed = -MapMover.speed;
-            map.transform.position = new Vector2(position + 4.0f, map.transform.position.y);
+            map.transform.position = new Vector2(position, map.transform.position.y);
             map.transform.Rotate(0, -180, 0);
         }
 
         if(collision.transform.tag.Equals("PortalVertical")){
             rb.gravityScale = -rb.gravityScale;
-            map.transform.position = new Vector2(19, map.transform.position.y);
+            force = -force;
+            map.transform.position = new Vector2(position, map.transform.position.y);
             map.transform.Rotate(180, 0, 0);
         }
     }
