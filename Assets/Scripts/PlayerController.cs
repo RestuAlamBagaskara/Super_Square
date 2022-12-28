@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
     private float position;
     private bool isJump = false;
     public GameObject map;
+    public GameObject cam;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         position = Portal.position;
-        Debug.Log("Ini" + position);
     }
 
     // Update is called once per frame
@@ -49,16 +49,25 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.transform.tag.Equals("PortalHorizontal")){
-            MapMover.speed = -MapMover.speed;
-            map.transform.position = new Vector2(position, map.transform.position.y);
-            map.transform.Rotate(0, -180, 0);
+            if(cam.transform.position.z == 30) {
+                cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, -10);
+                cam.transform.Rotate(cam.transform.rotation.x, 180, cam.transform.rotation.z);
+            }
+            else{
+                cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, 30);
+                cam.transform.Rotate(cam.transform.rotation.x, 180, cam.transform.rotation.z);
+            }
         }
 
         if(collision.transform.tag.Equals("PortalVertical")){
-            rb.gravityScale = -rb.gravityScale;
-            force = -force;
-            map.transform.position = new Vector2(position, map.transform.position.y);
-            map.transform.Rotate(180, 0, 0);
+            if(cam.transform.position.z == 30) {
+                cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, -10);
+                cam.transform.Rotate(cam.transform.rotation.x, -180, 180);
+            }
+            else{
+                cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, 30);
+                cam.transform.Rotate(cam.transform.rotation.x, -180, 180);
+            }
         }
     }
 }
