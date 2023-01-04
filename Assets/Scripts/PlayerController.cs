@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     public GameObject map;
     public GameObject cam;
 
+    // untuk boss fight
+    public GameObject canvasControll;
+    public GameObject projectile;
+    public int life = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +30,11 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0, force));
             transform.Rotate(0, 0, 180);
             isJump = true;
+        }
+
+        // jika life player habis maka game over
+        if(life == 0){
+            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -69,5 +79,47 @@ public class PlayerController : MonoBehaviour
                 cam.transform.Rotate(cam.transform.rotation.x, -180, 180);
             }
         }
+    }
+
+
+    // FUNGSI Terbuka saat menabrak object dengan tag "BOSFIGHT"
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.transform.tag.Equals("BOSFIGHT")){
+            canvasControll.SetActive(true);
+        }   
+        // jika terkena projectile maka life berkurang
+        if(collision.transform.tag.Equals("Projectile")){
+            life--;
+        }
+    }
+
+    // fungsi gerak kanan atas bawah kiri dengan tombol dari layar
+    public void MoveUp(){
+        rb.AddForce(new Vector2(0, force));
+        transform.Rotate(0, 0, 180);
+        isJump = true;
+    }
+
+    public void MoveDown(){
+        rb.AddForce(new Vector2(0, -force));
+        transform.Rotate(0, 0, 180);
+        isJump = true;
+    }
+
+    public void MoveLeft(){
+        rb.AddForce(new Vector2(-force, 0));
+        transform.Rotate(0, 0, 180);
+        isJump = true;
+    }
+
+    public void MoveRight(){
+        rb.AddForce(new Vector2(force, 0));
+        transform.Rotate(0, 0, 180);
+        isJump = true;
+    }
+    // fungsi shoot projectile dengan tombol dari layar
+    public void Shoot(){
+        GameObject peluru = Instantiate(projectile, transform.position, Quaternion.identity);
+        peluru.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1000));
     }
 }

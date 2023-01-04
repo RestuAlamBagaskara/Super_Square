@@ -11,8 +11,6 @@ public class EnemyController : MonoBehaviour
     public float batasAtas = 4f;
     public float batasBawah = -4f;
     public GameObject enemyProjectile;
-    public GameObject enemy;
-    public GameObject player;
 
     // Fungsi Start 
     void Start()
