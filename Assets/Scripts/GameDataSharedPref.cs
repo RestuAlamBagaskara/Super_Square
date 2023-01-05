@@ -37,22 +37,22 @@ public class GameDataSharedPref : MonoBehaviour
     }
 
     // save data per object
-    public void saveCoin()
+    public void saveCoin(int coin)
     {
         PlayerPrefs.SetInt("coin", coin);
     }
 
-    public void saveLevel()
+    public void saveLevel(int level)
     {
         PlayerPrefs.SetInt("level", level);
     }
 
-    public void saveSelectedCharacter()
+    public void saveSelectedCharacter(int selectedCharacter)
     {
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
     }
 
-    public void saveBuyedCharacter()
+    public void saveBuyedCharacter(List<bool> buyedCharacter)
     {
         for (int i = 0; i < buyedCharacter.Count; i++)
         {
@@ -60,12 +60,12 @@ public class GameDataSharedPref : MonoBehaviour
         }
     }
 
-    public void saveVolume()
+    public void saveVolume(float volume)
     {
         PlayerPrefs.SetFloat("volume", volume);
     }
 
-    public void saveSfx()
+    public void saveSfx(float sfx)
     {
         PlayerPrefs.SetFloat("sfx", sfx);
     }
@@ -102,17 +102,6 @@ public class GameDataSharedPref : MonoBehaviour
     public void loadSfx()
     {
         sfx = PlayerPrefs.GetFloat("sfx");
-    }
-
-    // save all data
-    public void saveAllData()
-    {
-        saveCoin();
-        saveLevel();
-        saveSelectedCharacter();
-        saveBuyedCharacter();
-        saveVolume();
-        saveSfx();
     }
 
     // load all data
