@@ -12,6 +12,10 @@ public class GameDataSharedPref : MonoBehaviour
     // list data buyed character
     public List<bool> buyedCharacter = new List<bool>();
 
+    // data volume & sfx
+    public float volume;
+    public float sfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +60,16 @@ public class GameDataSharedPref : MonoBehaviour
         }
     }
 
+    public void saveVolume()
+    {
+        PlayerPrefs.SetFloat("volume", volume);
+    }
+
+    public void saveSfx()
+    {
+        PlayerPrefs.SetFloat("sfx", sfx);
+    }
+
     // load data per object
     public int loadCoin()
     {
@@ -80,6 +94,16 @@ public class GameDataSharedPref : MonoBehaviour
         }
     }
 
+    public void loadVolume()
+    {
+        volume = PlayerPrefs.GetFloat("volume");
+    }
+
+    public void loadSfx()
+    {
+        sfx = PlayerPrefs.GetFloat("sfx");
+    }
+
     // save all data
     public void saveAllData()
     {
@@ -87,6 +111,8 @@ public class GameDataSharedPref : MonoBehaviour
         saveLevel();
         saveSelectedCharacter();
         saveBuyedCharacter();
+        saveVolume();
+        saveSfx();
     }
 
     // load all data
@@ -96,6 +122,8 @@ public class GameDataSharedPref : MonoBehaviour
         loadLevel();
         loadSelectedCharacter();
         loadBuyedCharacter();
+        loadVolume();
+        loadSfx();
     }
 
     // reset all data
@@ -105,6 +133,8 @@ public class GameDataSharedPref : MonoBehaviour
         level = 0;
         selectedCharacter = 0;
         buyedCharacter = new List<bool>();
+        volume = 1;
+        sfx = 1;
         saveAllData();
     }
 }
