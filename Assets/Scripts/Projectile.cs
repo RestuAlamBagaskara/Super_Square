@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public GameObject Projectile; 
+    public GameObject projectile; 
     // Digunakan untuk menentukan object peluru berdasarkan tag
-    public String targetTag;
+    public string targetTag;
     public float speed;
+    private Transform target;
 
     void Awake()
     {

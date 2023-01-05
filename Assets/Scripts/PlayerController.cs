@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
     public float force;
     private float position;
     private bool isJump = false;
@@ -15,12 +18,17 @@ public class PlayerController : MonoBehaviour
     public GameObject canvasControll;
     public GameObject projectile;
     public int life = 3;
+    public int coin;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        position = Portal.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        Texture2D lastSprite = new Texture2D(1,1);
+        lastSprite.LoadImage(Convert.FromBase64String(PlayerPrefs.GetString("LastSkin")));
+        spriteRenderer.sprite = Sprite.Create(lastSprite, new Rect(0.0f, 0.0f, lastSprite.width, lastSprite.height), new Vector2(0.5f, 0.5f), 100.0f);
+        Debug.Log(PlayerPrefs.GetInt("Coin"));
     }
 
     // Update is called once per frame
@@ -38,6 +46,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision) {
         if(isJump){
             isJump = false;
@@ -54,6 +63,20 @@ public class PlayerController : MonoBehaviour
         if(collision.transform.tag.Equals("Jumper")){
             rb.AddForce(new Vector2(0, 2000));
             isJump = true;
+        }
+
+        if(collision.transform.tag.Equals("Coin")){
+            coin = PlayerPrefs.GetInt("Coin") + 1;
+            PlayerPrefs.SetInt("Coin" , coin);
+            Destroy(collision.gameObject);
+        }
+
+         if(collision.transform.tag.Equals("BOSFIGHT")){
+            canvasControll.SetActive(true);
+        }   
+        // jika terkena projectile maka life berkurang
+        if(collision.transform.tag.Equals("Projectile")){
+            life--;
         }
     }
 
@@ -78,18 +101,6 @@ public class PlayerController : MonoBehaviour
                 cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, 30);
                 cam.transform.Rotate(cam.transform.rotation.x, -180, 180);
             }
-        }
-    }
-
-
-    // FUNGSI Terbuka saat menabrak object dengan tag "BOSFIGHT"
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.transform.tag.Equals("BOSFIGHT")){
-            canvasControll.SetActive(true);
-        }   
-        // jika terkena projectile maka life berkurang
-        if(collision.transform.tag.Equals("Projectile")){
-            life--;
         }
     }
 
@@ -121,5 +132,11 @@ public class PlayerController : MonoBehaviour
     public void Shoot(){
         GameObject peluru = Instantiate(projectile, transform.position, Quaternion.identity);
         peluru.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1000));
+    }
+    
+    public void OnSpriteClick(Sprite newSprite)
+    {
+        spriteRenderer.sprite = newSprite;
+        PlayerPrefs.SetString("LastSkin", Convert.ToBase64String(spriteRenderer.sprite.texture.EncodeToPNG()));
     }
 }
