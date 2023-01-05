@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
     public float force;
     private float position;
     private bool isJump = false;
     public GameObject map;
     public GameObject cam;
+    public int coin;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        position = Portal.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        Texture2D lastSprite = new Texture2D(1,1);
+        lastSprite.LoadImage(Convert.FromBase64String(PlayerPrefs.GetString("LastSkin")));
+        spriteRenderer.sprite = Sprite.Create(lastSprite, new Rect(0.0f, 0.0f, lastSprite.width, lastSprite.height), new Vector2(0.5f, 0.5f), 100.0f);
+        Debug.Log(PlayerPrefs.GetInt("Coin"));
     }
 
     // Update is called once per frame
@@ -27,6 +34,7 @@ public class PlayerController : MonoBehaviour
             isJump = true;
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if(isJump){
@@ -44,6 +52,12 @@ public class PlayerController : MonoBehaviour
         if(collision.transform.tag.Equals("Jumper")){
             rb.AddForce(new Vector2(0, 2000));
             isJump = true;
+        }
+
+        if(collision.transform.tag.Equals("Coin")){
+            coin = PlayerPrefs.GetInt("Coin") + 1;
+            PlayerPrefs.SetInt("Coin" , coin);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -69,5 +83,11 @@ public class PlayerController : MonoBehaviour
                 cam.transform.Rotate(cam.transform.rotation.x, -180, 180);
             }
         }
+    }
+    
+    public void OnSpriteClick(Sprite newSprite)
+    {
+        spriteRenderer.sprite = newSprite;
+        PlayerPrefs.SetString("LastSkin", Convert.ToBase64String(spriteRenderer.sprite.texture.EncodeToPNG()));
     }
 }
