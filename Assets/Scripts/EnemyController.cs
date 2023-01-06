@@ -41,15 +41,11 @@ public class EnemyController : MonoBehaviour
     // Fungsi Update
     void Update()
     {
-        if (transform.position.y > batasAtas)
+        if (transform.position.y >= batasAtas)
         {
             MoveDown();
         }
-        else if (transform.position.y < batasBawah)
-        {
-            MoveUp();
-        }
-        else
+        else if (transform.position.y <= batasBawah)
         {
             MoveUp();
         }
