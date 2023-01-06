@@ -23,6 +23,13 @@ public class Market : MonoBehaviour
                 PlayerPrefs.SetInt(character[i].name, 0);
             }
         }
+
+        for (int i = 0; i < character.Length; i++)
+        {
+            // if(!PlayerPrefs.HasKey(character[i].name)){
+                Debug.Log(PlayerPrefs.GetInt(character[i].name) + " " + character[i].name);
+            // }
+        }
     }
 
     // Update is called once per frame
