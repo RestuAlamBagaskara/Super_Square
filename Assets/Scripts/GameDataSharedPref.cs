@@ -71,9 +71,9 @@ public class GameDataSharedPref : MonoBehaviour
     }
 
     // load data per object
-    public int loadCoin()
+    public void loadCoin()
     {
-        return PlayerPrefs.GetInt("coin");
+        coin = PlayerPrefs.GetInt("coin");
     }
 
     public void loadLevel()
@@ -113,17 +113,5 @@ public class GameDataSharedPref : MonoBehaviour
         loadBuyedCharacter();
         loadVolume();
         loadSfx();
-    }
-
-    // reset all data
-    public void resetAllData()
-    {
-        coin = 0;
-        level = 0;
-        selectedCharacter = 0;
-        buyedCharacter = new List<bool>();
-        volume = 1;
-        sfx = 1;
-        saveAllData();
     }
 }
