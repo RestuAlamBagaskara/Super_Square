@@ -114,16 +114,4 @@ public class GameDataSharedPref : MonoBehaviour
         loadVolume();
         loadSfx();
     }
-
-    // reset all data
-    public void resetAllData()
-    {
-        coin = 0;
-        level = 0;
-        selectedCharacter = 0;
-        buyedCharacter = new List<bool>();
-        volume = 1;
-        sfx = 1;
-        saveAllData();
-    }
 }
