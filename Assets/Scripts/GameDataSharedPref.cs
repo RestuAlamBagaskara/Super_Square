@@ -71,9 +71,9 @@ public class GameDataSharedPref : MonoBehaviour
     }
 
     // load data per object
-    public int loadCoin()
+    public void loadCoin()
     {
-        return PlayerPrefs.GetInt("coin");
+        coin = PlayerPrefs.GetInt("coin");
     }
 
     public void loadLevel()
