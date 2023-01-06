@@ -27,8 +27,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         Texture2D lastSprite = new Texture2D(1,1);
         lastSprite.LoadImage(Convert.FromBase64String(PlayerPrefs.GetString("LastSkin")));
-        spriteRenderer.sprite = Sprite.Create(lastSprite, new Rect(0.0f, 0.0f, lastSprite.width, lastSprite.height), new Vector2(0.5f, 0.5f), 100.0f);
-        Debug.Log(PlayerPrefs.GetInt("Coin"));
+        spriteRenderer.sprite = Sprite.Create(lastSprite, new Rect(0.0f, 0.0f, lastSprite.width, lastSprite.height), new Vector2(0.5f, 0.5f), 100.0f) ?? spriteRenderer.sprite;
     }
 
     // Update is called once per frame
@@ -58,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
         if(collision.transform.tag.Equals("Obstacle")){
             map.transform.position = new Vector2(transform.position.x, map.transform.position.y);
+            gameObject.SetActive(false);
         }
 
         if(collision.transform.tag.Equals("Jumper")){
@@ -132,11 +132,5 @@ public class PlayerController : MonoBehaviour
     public void Shoot(){
         GameObject peluru = Instantiate(projectile, transform.position, Quaternion.identity);
         peluru.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1000));
-    }
-    
-    public void OnSpriteClick(Sprite newSprite)
-    {
-        spriteRenderer.sprite = newSprite;
-        PlayerPrefs.SetString("LastSkin", Convert.ToBase64String(spriteRenderer.sprite.texture.EncodeToPNG()));
     }
 }
