@@ -1,8 +1,3 @@
-// Enemy Controller - This script controls the enemy's movement and shooting
-// The enemy will tranform y position to move up and down
-//  Enemy have a random chance to shoot a projectile
-//  Enemy have 3 lives, when it is hit by a player projectile, it will lose a life
-
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
