@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
+    public Sprite defaultSkin;
     public float force;
     private float position;
     private Vector2 location;
@@ -25,14 +26,17 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
         // position = Portal.position;
         // Debug.Log("Ini" + position);
+=======
+>>>>>>> f36fc80dacd7ae1246692eabc344af317f7e2e75
         location = rb.position;
         Debug.Log("Ini" + location);
         spriteRenderer = GetComponent<SpriteRenderer>();
         Texture2D lastSprite = new Texture2D(1,1);
         lastSprite.LoadImage(Convert.FromBase64String(PlayerPrefs.GetString("LastSkin")));
-        spriteRenderer.sprite = Sprite.Create(lastSprite, new Rect(0.0f, 0.0f, lastSprite.width, lastSprite.height), new Vector2(0.5f, 0.5f), 100.0f) ?? spriteRenderer.sprite;
+        spriteRenderer.sprite = Sprite.Create(lastSprite, new Rect(0.0f, 0.0f, lastSprite.width, lastSprite.height), new Vector2(0.5f, 0.5f), 100.0f) ?? defaultSkin;
     }
 
     // Update is called once per frame
@@ -44,18 +48,18 @@ public class PlayerController : MonoBehaviour
         //     transform.Rotate(0, 0, 180);
         // }
         if(!isJump){
-    //    if(Input.GetMouseButton(0)){
-       if(Input.GetKey(KeyCode.Space)){
-            isJump = true;
-            rb.AddForce(new Vector2(0, force));
-            transform.Rotate(0, 0, 180);
-        }
+        //    if(Input.GetMouseButton(0)){
+            if(Input.GetKey(KeyCode.Space)){
+                isJump = true;
+                rb.AddForce(new Vector2(0, force));
+                transform.Rotate(0, 0, 180);
+            }
 
-        // jika life player habis maka game over
-        if(life == 0){
-            SceneManager.LoadScene("GameOver");
+            // jika life player habis maka game over
+            if(life == 0){
+                SceneManager.LoadScene("GameOver");
+            }
         }
-    }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -73,7 +77,6 @@ public class PlayerController : MonoBehaviour
             rb.transform.position = location;
             // yield WaitForSeconds (3.0);
             // yield return new WaitForSeconds(5);
-            // gameObject.SetActive(false);
         }
 
     }
@@ -97,7 +100,6 @@ public class PlayerController : MonoBehaviour
         if(collision.transform.tag.Equals("Projectile")){
             life--;
         }
-    
 
         if(collision.transform.tag.Equals("PortalHorizontal")){
             if(cam.transform.position.z == 30) {
