@@ -29,6 +29,7 @@ public class Market : MonoBehaviour
                 PlayerPrefs.SetInt(character[i].name, 0);
             }
         }
+        PlayerPrefs.SetInt("Charcter_1", 1);
     }
 
     // Update is called once per frame
