@@ -26,11 +26,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
-        // position = Portal.position;
-        // Debug.Log("Ini" + position);
-=======
->>>>>>> f36fc80dacd7ae1246692eabc344af317f7e2e75
         location = rb.position;
         Debug.Log("Ini" + location);
         spriteRenderer = GetComponent<SpriteRenderer>();
