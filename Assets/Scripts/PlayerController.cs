@@ -71,7 +71,6 @@ public class PlayerController : MonoBehaviour
             rb.transform.position = location;
             // yield WaitForSeconds (3.0);
             // yield return new WaitForSeconds(5);
-            gameObject.SetActive(false);
         }
 
     }
