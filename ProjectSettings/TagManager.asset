@@ -9,6 +9,9 @@ TagManager:
   - Jumper
   - PortalVertical
   - PortalHorizontal
+  - Coin
+  - Peluru
+  - Enemy
   layers:
   - Default
   - TransparentFX

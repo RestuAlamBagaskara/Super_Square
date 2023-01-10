@@ -10,6 +10,9 @@ public class Projectile : MonoBehaviour
     public float speed;
     private Transform target;
 
+    // deklarasi waktu untuk menghancurkan peluru
+    public float destroyTime = 3f;
+
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag(targetTag).GetComponent<Transform>();
@@ -18,5 +21,15 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        // menghancurkan peluru setelah 3 detik
+        if (destroyTime <= 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            destroyTime -= Time.deltaTime;
+        }
     }
 }

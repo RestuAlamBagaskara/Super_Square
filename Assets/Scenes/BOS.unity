@@ -123,6 +123,76 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &60712721
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9107255810569715648, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715650, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_Name
+      value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715651, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.0334015
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1074879
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715678, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107255810569715679, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9107255810569715651, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
 --- !u!1 &153236722
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +622,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1946211190
 GameObject:
@@ -636,7 +706,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1993866656
 GameObject:
@@ -673,7 +743,7 @@ MonoBehaviour:
   yMin: -3.5
   yMax: 3.5
   shootDelay: 2
-  projectile: {fileID: 2673589133043346616, guid: 8a22d02bf70c0044fbd7808a41d031b8, type: 3}
+  projectile: {fileID: 2034014639640103627, guid: bcd19a370bf9d7f4fac9613c57d411f8, type: 3}
 --- !u!212 &1993866658
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -714,7 +784,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: cb8713b7cc733d54eb1f16559e997b23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -739,7 +809,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &1993866660
 EdgeCollider2D:
@@ -1072,7 +1142,7 @@ RectTransform:
   - {fileID: 746119400}
   - {fileID: 153236723}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
