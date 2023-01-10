@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        position = Portal.position;
-        Debug.Log("Ini" + position);
         location = rb.position;
         Debug.Log("Ini" + location);
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -43,20 +41,20 @@ public class PlayerController : MonoBehaviour
         //     rb.AddForce(new Vector2(0, force));
         //     transform.Rotate(0, 0, 180);
         // }
-if(!isJump){
-    //    if(Input.GetMouseButton(0)){
-       if(Input.GetKey(KeyCode.Space)){
-            isJump = true;
-            rb.AddForce(new Vector2(0, force));
-            transform.Rotate(0, 0, 180);
-        }
+        if(!isJump){
+        //    if(Input.GetMouseButton(0)){
+            if(Input.GetKey(KeyCode.Space)){
+                isJump = true;
+                rb.AddForce(new Vector2(0, force));
+                transform.Rotate(0, 0, 180);
+            }
 
-        // jika life player habis maka game over
-        if(life == 0){
-            SceneManager.LoadScene("GameOver");
+            // jika life player habis maka game over
+            if(life == 0){
+                SceneManager.LoadScene("GameOver");
+            }
         }
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision) {
         // if(isJump){
@@ -97,7 +95,6 @@ if(!isJump){
         if(collision.transform.tag.Equals("Projectile")){
             life--;
         }
-    }
 
         if(collision.transform.tag.Equals("PortalHorizontal")){
             if(cam.transform.position.z == 30) {
