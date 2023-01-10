@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3242935963832111166}
   - component: {fileID: 7730784640905311422}
   m_Layer: 0
-  m_Name: spikes
-  m_TagString: Untagged
+  m_Name: spikes2
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3242935963832111164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 122.73, y: -2.4147005, z: 0.103212796}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,12 +110,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.024999999, y: 0.305}
-      - {x: -0.305, y: -0.265}
+    - - {x: -0.0049661044, y: 0.24155554}
+      - {x: -0.2682712, y: -0.2783566}
       - {x: -0.305, y: -0.305}
       - {x: 0.305, y: -0.305}
-      - {x: 0.305, y: -0.265}
-      - {x: 0.015, y: 0.305}
+      - {x: 0.2682712, y: -0.27835676}
+      - {x: 0.008322035, y: 0.23821643}
     - - {x: -0.095, y: -0.035}
       - {x: 0.095, y: -0.035}
       - {x: 0.125, y: -0.105}

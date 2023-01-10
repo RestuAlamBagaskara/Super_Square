@@ -68,3 +68,7 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# ignore "C:\Users\ahmad\Desktop\Super_Square\UserSettings\EditorUserSettings.asset"
+/[Uu]ser[Ss]ettings/EditorUserSettings.asset
+
