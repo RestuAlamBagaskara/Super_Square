@@ -17,8 +17,8 @@ public class Switch : MonoBehaviour
 
     void Update()
     {
-        if(index >= 4)
-           index = 4 ; 
+        if(index >= 3)
+           index = background.Length; 
 
         if(index < 0)
            index = 0 ;
@@ -34,7 +34,8 @@ public class Switch : MonoBehaviour
 
     public void Next()
      {
-        index += 1;
+      if(index<background.Length-1){
+         index += 1;
     
          for(int i = 0 ; i < background.Length; i++)
          {
@@ -42,11 +43,15 @@ public class Switch : MonoBehaviour
             background[index].gameObject.SetActive(true);
          }
             Debug.Log(index);
+
+      }
+        
      }
     
      public void Previous()
      {
-          index -= 1;
+      if(index>0){
+         index -= 1;
     
         for(int i = 0 ; i < background.Length; i++)
          {
@@ -54,6 +59,8 @@ public class Switch : MonoBehaviour
             background[index].gameObject.SetActive(true);
          }
             Debug.Log(index);
+      }
+          
      }
 
    
