@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2046,16 +2058,16 @@ TextureImporter:
       gjFont04_14: -1946775778
       gjFont04_50: -881648452
       gjFont04_8: 292459077
-      gjFont04_2: -802417481
       gjFont04_82: 1147324532
+      gjFont04_2: -802417481
       gjFont04_86: -1649529532
       gjFont04_20: -862514486
       gjFont04_80: 940661142
-      gjFont04_17: -1284507519
-      gjFont04_21: -842941879
-      gjFont04_62: 199598014
-      gjFont04_13: -430362607
       gjFont04_74: -1763977483
+      gjFont04_21: -842941879
+      gjFont04_17: -1284507519
+      gjFont04_13: -430362607
+      gjFont04_62: 199598014
       gjFont04_41: 856758567
       gjFont04_51: 888911643
       gjFont04_45: -563100864
