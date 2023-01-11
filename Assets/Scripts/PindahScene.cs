@@ -20,6 +20,16 @@ public class PindahScene : MonoBehaviour
             // mediaPlayerBenar.Play();
         }
     }
+
+    public void pindahScene(string namaScene){
+        // AudioSource buttonSound = ButtonSound.GetComponent<AudioSource>();
+        // buttonSound.PlayOneShot(buttonSound.clip);
+            SceneManager.LoadScene (namaScene);
+    }
+
+    public void Keluar(){
+        Application.Quit();
+    }
     // Start is called before the first frame update
     void Start()
     {
