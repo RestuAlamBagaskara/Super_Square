@@ -203,6 +203,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9107255810569715679, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 1993866656}
+    - target: {fileID: 9107255810569715679, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
       propertyPath: lifeP
       value: 
       objectReference: {fileID: 1677614370}
@@ -218,6 +222,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 5536105323827115428, guid: 922e1f454d1e3f7419454689ba7ed1d7, type: 3}
+    - target: {fileID: 9107255810569715679, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: defaultSkin
+      value: 
+      objectReference: {fileID: -1947751318, guid: f75bd8f71d7a5a346897dad01da9ff78, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
 --- !u!1 &62994370
