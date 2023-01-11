@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e25aed42f654c4b966664ae7f15bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 7
   player: {fileID: 1333360919}
 --- !u!58 &153236729
 CircleCollider2D:
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e25aed42f654c4b966664ae7f15bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 7
   player: {fileID: 1333360919}
 --- !u!58 &564036068
 CircleCollider2D:
@@ -1348,7 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e25aed42f654c4b966664ae7f15bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 7
   player: {fileID: 1333360919}
 --- !u!58 &746119406
 CircleCollider2D:
@@ -3065,7 +3065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e25aed42f654c4b966664ae7f15bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 7
   player: {fileID: 1333360919}
 --- !u!58 &2012923326
 CircleCollider2D:
