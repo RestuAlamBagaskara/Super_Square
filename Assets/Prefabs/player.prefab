@@ -157,7 +157,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   life: 3
   coin: 0
-  shootTimer: 3
+  shootTimer: 6
   shootDelay: 3
   lifeP: {fileID: 0}
 --- !u!82 &-2950262726984476463

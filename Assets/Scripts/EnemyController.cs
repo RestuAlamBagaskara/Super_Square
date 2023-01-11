@@ -28,23 +28,25 @@ public class EnemyController : MonoBehaviour
         // move up and down
         transform.position += Vector3.up * speed * Time.deltaTime;
 
-        // change direction when reach the top or bottom
-        if (transform.position.y > yMax)
-        {
-            speed = -Mathf.Abs(speed);
-        }
-        else if (transform.position.y < yMin)
-        {
-            speed = Mathf.Abs(speed);
-        }
+        if(gameObject){
+            if (transform.position.y > yMax)
+            {
+                speed = -Mathf.Abs(speed);
+            }
+            else if (transform.position.y < yMin)
+            {
+                speed = Mathf.Abs(speed);
+            }
 
-        // shoot a projectile
-        shootTimer -= Time.deltaTime;
-        if (shootTimer <= 0)
-        {
-            shootTimer = shootDelay;
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            // shoot a projectile
+            shootTimer -= Time.deltaTime;
+            if (shootTimer <= 0)
+            {
+                shootTimer = shootDelay;
+                Instantiate(projectile, transform.position, Quaternion.identity);
+            }
         }
+        // change direction when reach the top or bottom
 
         
 
