@@ -18,9 +18,6 @@ public class Market : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerPrefs.GetInt("Coin") == 0){
-            PlayerPrefs.SetInt("Coin", 1000);
-        }
         spriteRenderer = GetComponent<SpriteRenderer>();
         Texture2D lastSprite = new Texture2D(1,1);
         lastSprite.LoadImage(Convert.FromBase64String(PlayerPrefs.GetString("LastSkin")));
