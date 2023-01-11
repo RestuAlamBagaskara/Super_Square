@@ -102,7 +102,7 @@ MonoBehaviour:
   projectile: {fileID: 5536105323827115428}
   targetTag: Enemy
   speed: 2
-  destroyTime: 3
+  destroyTime: 8
 --- !u!50 &5657093648708541531
 Rigidbody2D:
   serializedVersion: 4
