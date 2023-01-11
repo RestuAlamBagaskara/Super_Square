@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(new Vector2(0, force));
                 transform.Rotate(0, 0, 180);
             }
+
+            if(Input.GetMouseButton(0)){
+                isJump = true;
+                rb.AddForce(new Vector2(0, force));
+                transform.Rotate(0, 0, 180);
+            }
         }
 
         if(life == 0){
