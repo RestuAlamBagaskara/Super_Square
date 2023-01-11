@@ -53,11 +53,6 @@ public class PlayerController : MonoBehaviour
         }
 
         shootTimer -= Time.deltaTime;
-
-        // if lifeP not assigned 
-        if(lifeP != null){
-            lifeP.text = life.ToString();
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         // if(isJump){
@@ -107,6 +102,7 @@ public class PlayerController : MonoBehaviour
         // jika terkena projectile maka life berkurang
         if(collision.transform.tag.Equals("Projectile")){
             life--;
+            lifeP.text = life.ToString();
         }
 
         if(collision.transform.tag.Equals("PortalHorizontal")){
