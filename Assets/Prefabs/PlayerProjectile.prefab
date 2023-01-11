@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 28344819d30195249b33b39c3a61f744, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5536105323827115428}
   targetTag: Enemy
-  speed: 1
+  speed: 2
   destroyTime: 3
 --- !u!50 &5657093648708541531
 Rigidbody2D:

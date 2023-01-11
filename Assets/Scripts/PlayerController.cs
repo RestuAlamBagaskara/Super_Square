@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool isJump = false;
     public GameObject map;
     public GameObject cam;
+    public GameObject GameOver;
 
     // untuk boss fight
     public GameObject projectile;
@@ -49,7 +50,8 @@ public class PlayerController : MonoBehaviour
         }
 
         if(life == 0){
-                SceneManager.LoadScene("GameOver");
+                Destroy(gameObject);
+                GameOver.SetActive(true);
         }
 
         shootTimer -= Time.deltaTime;
@@ -63,9 +65,17 @@ public class PlayerController : MonoBehaviour
             rb.freezeRotation = true;   
             isJump = false;       
         }
-
+        Scene sceneIni = SceneManager.GetActiveScene();
         if(collision.transform.tag.Equals("ToBoss")){
-            SceneManager.LoadScene("BOS");
+            if(sceneIni.name == "Level2"){
+                SceneManager.LoadScene("BOS1");
+            }
+            if(sceneIni.name == "Level3"){
+                SceneManager.LoadScene("BOS2");
+            }
+            if(sceneIni.name == "Level5"){
+                SceneManager.LoadScene("BOS3");
+            }
         }
 
         if(collision.transform.tag.Equals("Obstacle")){
@@ -85,6 +95,11 @@ public class PlayerController : MonoBehaviour
             }
             cam.transform.rotation = Quaternion.Euler(Vector3.zero);
         }
+        // jika terkena projectile maka life berkurang
+        if(collision.transform.tag.Equals("Projectile")){
+            life--;
+            lifeP.text = life.ToString();
+        }
 
     }
 
@@ -99,11 +114,6 @@ public class PlayerController : MonoBehaviour
             PlayerPrefs.SetInt("Coin" , coin);
             Destroy(collision.gameObject);
         }  
-        // jika terkena projectile maka life berkurang
-        if(collision.transform.tag.Equals("Projectile")){
-            life--;
-            lifeP.text = life.ToString();
-        }
 
         if(collision.transform.tag.Equals("PortalHorizontal")){
             if(cam.transform.position.z == 30) {

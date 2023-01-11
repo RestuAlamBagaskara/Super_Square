@@ -18,7 +18,7 @@ public class Market : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Coin", 1000);
+        // PlayerPrefs.SetInt("Coin", 1000);
         spriteRenderer = GetComponent<SpriteRenderer>();
         Texture2D lastSprite = new Texture2D(1,1);
         lastSprite.LoadImage(Convert.FromBase64String(PlayerPrefs.GetString("LastSkin")));
@@ -76,6 +76,7 @@ public class Market : MonoBehaviour
             texture.Apply();
             byte[] spriteData = texture.EncodeToPNG();
             PlayerPrefs.SetString("LastSkin", Convert.ToBase64String(spriteData));
+            popUp.SetActive(false);
         }
         else{
             CoinKurang.SetActive(true);

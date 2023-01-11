@@ -8,10 +8,12 @@ public class EnemyController : MonoBehaviour
     public float yMin, yMax;
     public float shootDelay;
     public GameObject projectile;
+    public GameObject congratulation;
 
     private float shootTimer;
     private int lives = 3;
     public Text lifeE;
+    public int rewardCoin = 10;
 
 
     // Start is called before the first frame update
@@ -44,15 +46,9 @@ public class EnemyController : MonoBehaviour
             Instantiate(projectile, transform.position, Quaternion.identity);
         }
 
-        // update the lifeE text
-        lifeE.text = lives.ToString();
+        
 
-        if(lives == 0)
-        {
-            Destroy(gameObject);
-            // invoke the game over scene 2 seconds after the enemy is destroyed
-            Invoke("GameOver", 2f); 
-        }
+       
     }
 
     // when the enemy is hit by a projectile, it will lose a life
@@ -60,11 +56,16 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerProjectile")
         {
+            Debug.Log(lives);
             lives--;
+            // update the lifeE text
+        lifeE.text = lives.ToString();
             Destroy(collision.gameObject);
-            if (lives <= 0)
+            if (lives == 0)
             {
                 Destroy(gameObject);
+                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + rewardCoin);
+                congratulation.SetActive(true);
             }
         }
     }

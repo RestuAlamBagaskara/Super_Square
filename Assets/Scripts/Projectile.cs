@@ -32,4 +32,10 @@ public class Projectile : MonoBehaviour
             destroyTime -= Time.deltaTime;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.transform.tag.Equals(targetTag)){
+            Destroy(gameObject);
+        }
+    }
 }
