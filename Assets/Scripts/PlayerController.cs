@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public GameObject map;
     public GameObject cam;
     public GameObject GameOver;
+    AudioSource audio;
+    public AudioClip hitSound;
 
     // untuk boss fight
     public GameObject projectile;
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
         Texture2D lastSprite = new Texture2D(1,1);
         lastSprite.LoadImage(Convert.FromBase64String(PlayerPrefs.GetString("LastSkin")));
         spriteRenderer.sprite = Sprite.Create(lastSprite, new Rect(0.0f, 0.0f, lastSprite.width, lastSprite.height), new Vector2(0.5f, 0.5f), 100.0f) ?? defaultSkin;
+        audio = GetComponent<AudioSource>();
+        audio.Play();
     }
 
     // Update is called once per frame
@@ -94,6 +98,7 @@ public class PlayerController : MonoBehaviour
                 cam.transform.rotation = Quaternion.Euler(Vector3.zero);
             }
             cam.transform.rotation = Quaternion.Euler(Vector3.zero);
+            audio.Play();
         }
         // jika terkena projectile maka life berkurang
         if(collision.transform.tag.Equals("Projectile")){
