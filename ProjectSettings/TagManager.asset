@@ -10,9 +10,10 @@ TagManager:
   - PortalVertical
   - PortalHorizontal
   - Coin
-  - Peluru
   - Enemy
   - ToBoss
+  - PlayerProjectile
+  - Projectile
   layers:
   - Default
   - TransparentFX

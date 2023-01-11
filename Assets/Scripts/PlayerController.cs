@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,11 +18,12 @@ public class PlayerController : MonoBehaviour
     public GameObject cam;
 
     // untuk boss fight
-    public GameObject canvasControll;
     public GameObject projectile;
     public int life = 3;
     public int coin;
-
+    public float shootTimer = 3f;
+    public float shootDelay = 3f;
+    public Text lifeP;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,26 +39,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(Input.GetMouseButton(0) && !isJump){
-        //     isJump = true;
-        //     rb.AddForce(new Vector2(0, force));
-        //     transform.Rotate(0, 0, 180);
-        // }
+        
         if(!isJump){
-        //    if(Input.GetMouseButton(0)){
             if(Input.GetKey(KeyCode.Space)){
                 isJump = true;
                 rb.AddForce(new Vector2(0, force));
                 transform.Rotate(0, 0, 180);
             }
-
-            // jika life player habis maka game over
-            if(life == 0){
-                SceneManager.LoadScene("GameOver");
-            }
         }
-    }
 
+        if(life == 0){
+                SceneManager.LoadScene("GameOver");
+        }
+
+        shootTimer -= Time.deltaTime;
+
+        //  Set UI LifeP
+        lifeP.text = life.ToString();
+    }
     private void OnCollisionEnter2D(Collision2D collision) {
         // if(isJump){
         //     isJump = false;
@@ -86,11 +86,7 @@ public class PlayerController : MonoBehaviour
             coin = PlayerPrefs.GetInt("Coin") + 1;
             PlayerPrefs.SetInt("Coin" , coin);
             Destroy(collision.gameObject);
-        }
-
-         if(collision.transform.tag.Equals("BOSFIGHT")){
-            canvasControll.SetActive(true);
-        }   
+        }  
         // jika terkena projectile maka life berkurang
         if(collision.transform.tag.Equals("Projectile")){
             life--;
@@ -118,34 +114,12 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    // fungsi gerak kanan atas bawah kiri dengan tombol dari layar
-    public void MoveUp(){
-        rb.AddForce(new Vector2(0, force));
-        transform.Rotate(0, 0, 180);
-        isJump = true;
-    }
-
-    public void MoveDown(){
-        rb.AddForce(new Vector2(0, -force));
-        transform.Rotate(0, 0, 180);
-        isJump = true;
-    }
-
-    public void MoveLeft(){
-        rb.AddForce(new Vector2(-force, 0));
-        transform.Rotate(0, 0, 180);
-        isJump = true;
-    }
-
-    public void MoveRight(){
-        rb.AddForce(new Vector2(force, 0));
-        transform.Rotate(0, 0, 180);
-        isJump = true;
-    }
     // fungsi shoot projectile dengan tombol dari layar
     public void Shoot(){
-        GameObject peluru = Instantiate(projectile, transform.position, Quaternion.identity);
-        peluru.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1000));
+        if (shootTimer <= 0)
+        {
+            shootTimer = shootDelay;
+            Instantiate(projectile, transform.position, Quaternion.identity);
+        }
     }
 }

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class EnemyController : MonoBehaviour
 
     private float shootTimer;
     private int lives = 3;
+    public Text lifeE;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,16 @@ public class EnemyController : MonoBehaviour
         {
             shootTimer = shootDelay;
             Instantiate(projectile, transform.position, Quaternion.identity);
+        }
+
+        // update the lifeE text
+        lifeE.text = lives.ToString();
+
+        if(lives == 0)
+        {
+            Destroy(gameObject);
+            // invoke the game over scene 2 seconds after the enemy is destroyed
+            Invoke("GameOver", 2f); 
         }
     }
 
