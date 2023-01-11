@@ -67,11 +67,26 @@ public class PlayerController : MonoBehaviour
             isJump = false;       
         }
 
+        if(collision.transform.tag.Equals("ToBoss")){
+            SceneManager.LoadScene("BOS");
+        }
+
         if(collision.transform.tag.Equals("Obstacle")){
             map.transform.position = new Vector2(transform.position.x, map.transform.position.y);
             rb.transform.position = location;
             // yield WaitForSeconds (3.0);
             // yield return new WaitForSeconds(5);
+            if(cam.transform.position.z == 30) {
+                cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, -10);
+                cam.transform.rotation = Quaternion.Euler(Vector3.zero);
+                // cam.transform.Rotate(cam.transform.rotation.x, 180, cam.transform.rotation.z);
+            }
+            if(cam.transform.rotation.x == -180){
+                 cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, -10);
+                // cam.transform.Rotate(cam.transform.rotation.x, 180, cam.transform.rotation.z);
+                cam.transform.rotation = Quaternion.Euler(Vector3.zero);
+            }
+            cam.transform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
     }
