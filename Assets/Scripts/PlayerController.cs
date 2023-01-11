@@ -54,8 +54,10 @@ public class PlayerController : MonoBehaviour
 
         shootTimer -= Time.deltaTime;
 
-        //  Set UI LifeP
-        lifeP.text = life.ToString();
+        // if lifeP not assigned 
+        if(lifeP != null){
+            lifeP.text = life.ToString();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         // if(isJump){
