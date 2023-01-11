@@ -15,9 +15,7 @@ public class Projectile : MonoBehaviour
 
     void Awake()
     {
-        if(EnemyController.lives != 0 || PlayerController.life != 0){
-            target = GameObject.FindGameObjectWithTag(targetTag).GetComponent<Transform>();
-        } 
+        target = GameObject.FindGameObjectWithTag(targetTag).GetComponent<Transform>();
     }
 
     void Update()
