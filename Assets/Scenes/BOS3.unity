@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2950262726984476463, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d3b87cd2cb920354297c825541b1a41e, type: 3}
     - target: {fileID: 9107255810569715648, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -210,6 +214,10 @@ PrefabInstance:
       propertyPath: GameOver
       value: 
       objectReference: {fileID: 1491613837}
+    - target: {fileID: 9107255810569715679, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d3b87cd2cb920354297c825541b1a41e, type: 3}
     - target: {fileID: 9107255810569715679, guid: b7d08921555a2044daeaf2a48bd720fe, type: 3}
       propertyPath: m_Enabled
       value: 1
